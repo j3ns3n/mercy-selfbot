@@ -14,9 +14,9 @@ module.exports = {
   ],
   usage: 'tweet <text to tweet>',
   description: 'Tweet messages from Discord!',
-  category: 'Information',
+  category: 'Utility',
   execute: (bot, msg, args) => {
-    if(!args) return msg.edit('**Missing text to tweet.**');
+    if(args.length < 1) return msg.edit('**Missing text to tweet.**');
     if(args.join(' ').length > 140) return msg.edit('**Tweet too long.**');
 
     twitRunner.post('statuses/update', { status: args.join(' ') }, function(err, data, response) {

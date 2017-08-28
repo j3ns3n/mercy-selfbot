@@ -1,4 +1,5 @@
 const snekfetch = require('snekfetch');
+const { RichEmbed } = require('discord.js');
 
 module.exports = {
   commands: [
@@ -7,11 +8,12 @@ module.exports = {
   ],
   usage: 'neko',
   description: 'OwO',
-  category: 'Information',
+  category: 'Fun',
   execute: (bot, msg, args) => {
     snekfetch.get("https://nekos.life/api/neko").then(res => {
-      if (res.status !== 200) { return msg.channel.send("**An error has occurred!**") }
-      msg.edit("", { embed: new Discord.RichEmbed().setTitle("Random Neko").setImage(res.body.neko).setFooter("Image by nekos.life") })
+      if (res.status !== 200) return msg.channel.send("**An error has occurred!**");
+
+      msg.edit("", { embed: new RichEmbed().setColor(0x5B8DEA).setTitle("Random Neko").setImage(res.body.neko).setFooter("https://github.com/LarK1n/mercy-selfbot | Image by nekos.life") });
     });
   }
 };

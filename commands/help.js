@@ -18,7 +18,7 @@ module.exports = {
         .addField('Name', bot.commands[command[0]].commands[0])
         .addField('Description', bot.commands[command[0]].description)
         .addField('Aliases', ((bot.commands[command[0]].commands.length > 1) ? bot.commands[command[0]].commands.slice(1).join(', ') : 'No Aliases'))
-        .setDescription('Mercy Selfbot')
+        .setFooter('https://github.com/LarK1n/mercy-selfbot')
         .setTimestamp();
         msg.edit({ embed });
       } else {
@@ -26,6 +26,7 @@ module.exports = {
         .setAuthor('Command List')
         .setColor(0x5B8DEA)
         .setDescription('That is not a command that I know of.')
+        .setFooter('https://github.com/LarK1n/mercy-selfbot')
         .setTimestamp();
         msg.edit({ embed });
       }
@@ -42,6 +43,7 @@ module.exports = {
       .setAuthor('Command List')
       .setColor(0x5B8DEA)
       .setDescription(Object.keys(helplist).map(c => '__' + c + '__\n' + helplist[c]).join('\n\n'))
+      .setFooter('https://github.com/LarK1n/mercy-selfbot')
       .setTimestamp();
       msg.edit({ embed: embed2 });
     }
