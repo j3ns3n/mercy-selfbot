@@ -1,0 +1,29 @@
+{
+  "name": "mercy-selfbot",
+  "version": "0.0.1",
+  "description": "A bot designed to run on a user account on Discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarK1n/mercy-selfbot.git"
+  },
+  "keywords": [
+    "Mercy",
+    "Selfbot",
+    "Discord",
+    "Utility"
+  ],
+  "author": "Mercy#6000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LarK1n/mercy-selfbot/issues"
+  },
+  "homepage": "https://github.com/LarK1n/mercy-selfbot#readme",
+  "dependencies": {
+    "discord.js": "^11.1.0"
+  }
+}
