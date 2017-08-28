@@ -23,7 +23,7 @@ module.exports = {
       if(err) return console.error(err);
       // console.log(data);
       // console.log(response);
-      msg.edit('**Tweet sent!**\nhttps://twitter.com/MercyDev_/status/' + data.id_str)
+      msg.edit('**Tweet sent!**\nhttps://twitter.com/' + data.user.screen_name + '/status/' + data.id_str)
     })
   }
 };
