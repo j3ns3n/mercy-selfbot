@@ -16,7 +16,8 @@ module.exports = {
       try {
         child_process.exec(args.join(' '), (error, stdout, stderr) => {
           let result = (stderr || stdout);
-          result = result.split(config.discord.token).join('-- DISCORD TOKEN --');
+          let result = result.split(config.discord.token).join('-- DISCORD TOKEN --');
+          let result = result.split(bot.user.email).join('-- USER EMAIL --');
           if (result.length > 1900 - args.join(' ').length) {
             snekfetch.post('https://feed-the-wump.us/documents').send(result).then((body) => {
               msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Result was too long, generated hastebin link instead.\nhttps://feed-the-wump.us/' + body.body.key + '.json**');
