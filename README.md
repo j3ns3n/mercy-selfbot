@@ -11,7 +11,7 @@ npm install
 ### Step 2:
 #### Run the following code to rename the `config.json.example` file to `config.json` and edit it:
 ```bash
-cp config.example.json config.json
+cp config.json.example config.json
 nano config.json
 ```
 #### In the areas provided, add your Discord login token and make any edits to the pre-defined prefix. You can also setup Twitter integration tokens which can be obtained [here](https://apps.twitter.com/ "Twitter Apps").
