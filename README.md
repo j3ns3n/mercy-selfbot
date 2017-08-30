@@ -4,7 +4,7 @@
 ### Step 1:
 #### Run the following commands to clone the repository and install dependencies:
 ```bash
-git clone https://github.com/LarK1n/mercy-selfbot.git
+git clone https://github.com/mercys-stuff/mercy-selfbot.git
 cd mercy-selfbot
 npm install
 ```
