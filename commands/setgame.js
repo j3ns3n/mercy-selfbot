@@ -24,7 +24,6 @@ module.exports = {
       });
       msg.edit(`**Set your game to \`${args.slice(2).join(' ')}\`**`);
     } else {
-      if(args.length < 1) return msg.edit('**No game name was submitted**');
       bot.user.setPresence({
         game: {
           name: args.join(' '),

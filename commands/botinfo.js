@@ -29,8 +29,8 @@ module.exports = {
         .addField('Server Count', r.body.server_count || 'Not Posted', true)
         .addField('Owner(s)', '<@' + r.body.owners.join('>\n<@') + '>')
         .addField('Invite', '[Here](https://discordapp.com/oauth2/authorize?scope=bot&permissions=0&client_id=' + args[0] + ')', true);
-        msg.edit('', {embed})
-      }).catch(err =>{
+        msg.edit('', {embed});
+      }).catch((err) => {
         return msg.edit('**The bot you are looking for was not found!**');
       });
     } else {
@@ -53,7 +53,7 @@ module.exports = {
         .addField('Owner(s)', '<@' + r.body.owners.join('>\n<@') + '>')
         .addField('Invite', '[Here](https://discordapp.com/oauth2/authorize?scope=bot&permissions=0&client_id=' + msg.mentions.users.first().id + ')', true);
         msg.edit('', {embed})
-      }).catch(err =>{
+      }).catch((err) =>{
         return msg.edit('**The bot you are looking for was not found!**');
       });
     }
