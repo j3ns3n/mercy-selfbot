@@ -13,8 +13,12 @@ module.exports = {
     }
 
     if(args[0].toLowerCase() === '-t') {
-      if(!args[1].toLowerCase().startsWith('https://twitch.tv/')) return msg.edit('**Invalid Twitch URL**');
-      if(args.slice(2).length < 1) return msg.edit('**No game name was submitted**');
+      if(!args[1].toLowerCase().startsWith('https://twitch.tv/')) {
+        return msg.edit('**Invalid Twitch URL**');
+      }
+      if(args.slice(2).length < 1) {
+        return msg.edit('**No game name was submitted**');
+      }
       bot.user.setPresence({
         game: {
           name: args.slice(2).join(' '),

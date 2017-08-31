@@ -17,7 +17,7 @@ module.exports = {
         });
       } catch (e) {
         msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to evaluate code!**\n```js\n' + e + '```').catch((error) => {
-          console.error(error);
+          throw new Error(error);
         });
       }
     } else {
