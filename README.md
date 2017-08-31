@@ -24,3 +24,6 @@ npm start
 
 ### Support:
 #### If you need any help feel free to [join my Discord server](https://discord.gg/FPDwypZ "Join my Discord Server").
+
+### DISCLAIMER:
+#### Selfbots are against Discord TOS and I accept no responsibility for your account being banned!
