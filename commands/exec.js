@@ -21,22 +21,22 @@ module.exports = {
           if (result.length > 1900 - args.join(' ').length) {
             snekfetch.post('https://feed-the-wump.us/documents').send(result).then((body) => {
               msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Result was too long, generated hastebin link instead.\nhttps://feed-the-wump.us/' + body.body.key + '.json**');
-            }).catch(error => {
+            }).catch((error) => {
               msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An unexpected error occured while generating hastebin link.**');
             });
           } else {
             msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Output:**\n```js\n' + result + '```').catch((error) => {
-              console.error(error);
+              throw new Error(error);
             });
           }
         });
       } catch (e) {
         msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to run command!**\n```js\n' + e + '```').catch((error) => {
-          console.error(error);
+          throw new Error(error);
         });
       }
     } else {
-      msg.edit(`**Missing code to evaluate.**`);
+      msg.edit('**Missing code to evaluate.**');
     }
   }
 };

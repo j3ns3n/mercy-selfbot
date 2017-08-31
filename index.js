@@ -26,9 +26,11 @@ fs.readdir('./commands/', (error, files) => {
 
       fs.readdir('./events/', (error, files) => {
 
-        if(error) throw new Error(error);
+        if(error) {
+          throw new Error(error);
+        }
 
-        files.map(file => {
+        files.map((file) => {
           let eventRunner = require('./events/' + file);
           let eventName = file.split('.')[0];
 
