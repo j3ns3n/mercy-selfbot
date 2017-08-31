@@ -9,10 +9,14 @@ module.exports = {
   description: 'Pull Information on a bot from https://discordbots.org.',
   category: 'Information',
   execute: (bot, msg, args) => {
-    if(args.length < 1) return msg.edit('**Please provide a bot mention or ID**');
+    if(args.length < 1) {
+      return msg.edit('**Please provide a bot mention or ID**');
+    }
     if(!msg.mentions.users.first()) {
-      snekfetch.get('https://discordbots.org/api/bots/' + args[0]).then(r => {
-        if(r.status !== 200) return msg.edit('**The bot you are looking for was not found!**');
+      snekfetch.get('https://discordbots.org/api/bots/' + args[0]).then((r) => {
+        if(r.status !== 200) {
+          return msg.edit('**The bot you are looking for was not found!**');
+        }
 
         const embed = new RichEmbed()
         .setColor(0x5B8DEA)
@@ -34,8 +38,10 @@ module.exports = {
         return msg.edit('**The bot you are looking for was not found!**');
       });
     } else {
-      snekfetch.get('https://discordbots.org/api/bots/' + msg.mentions.users.first().id).then(r => {
-        if(r.status !== 200) return msg.edit('**The bot you are looking for was not found!**');
+      snekfetch.get('https://discordbots.org/api/bots/' + msg.mentions.users.first().id).then((r) => {
+        if(r.status !== 200) {
+          return msg.edit('**The bot you are looking for was not found!**');
+        }
 
         const embed = new RichEmbed()
         .setColor(0x5B8DEA)
@@ -52,10 +58,10 @@ module.exports = {
         .addField('Server Count', r.body.server_count, true)
         .addField('Owner(s)', '<@' + r.body.owners.join('>\n<@') + '>')
         .addField('Invite', '[Here](https://discordapp.com/oauth2/authorize?scope=bot&permissions=0&client_id=' + msg.mentions.users.first().id + ')', true);
-        msg.edit('', {embed})
-      }).catch((err) =>{
+        msg.edit('', {embed});
+      }).catch((err) => {
         return msg.edit('**The bot you are looking for was not found!**');
       });
     }
   }
-}
+};
