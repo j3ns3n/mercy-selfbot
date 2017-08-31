@@ -22,7 +22,7 @@ const getBotInfo = (id, msg) => {
   }).catch((err) => {
     return msg.edit('**The bot you are looking for was not found!**');
   });
-}
+};
 
 module.exports = {
   commands: [
