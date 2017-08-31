@@ -14,17 +14,19 @@ module.exports = {
     if (args.length > 0) {
       try {
         let result = Promise.resolve(eval(args.join(' ')));
-        result.then(result => {
-          if (typeof (result) !== 'string') result = util.inspect(result, {
-            depth: 2,
-            maxArrayLength: 2048
-          });
+        result.then((result) => {
+          if (typeof (result) !== 'string') {
+            result = util.inspect(result, {
+              depth: 2,
+              maxArrayLength: 2048
+            });
+          }
           result = result.split(config.discord.token).join('-- DISCORD TOKEN --');
           result = result.split(bot.user.email).join('-- USER EMAIL --');
           if (result.length > 1900 - args.join(' ').length) {
             snekfetch.post('https://feed-the-wump.us/documents').send(result).then((body) => {
               msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Result was too long, generated hastebin link instead.\nhttps://feed-the-wump.us/' + body.body.key + '.json**');
-            }).catch(error => {
+            }).catch(*error) => {
               msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An unexpected error occured while generating hastebin link.**');
             });
           } else {
@@ -39,7 +41,7 @@ module.exports = {
         });
       }
     } else {
-      msg.edit(`**Missing code to evaluate.**`);
+      msg.edit('**Missing code to evaluate.**');
     }
   }
 };

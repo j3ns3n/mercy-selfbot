@@ -32,17 +32,17 @@ module.exports = {
       }
     } else {
       let helplist = {};
-      Object.keys(bot.commands).forEach(c => {
+      Object.keys(bot.commands).forEach((c) => {
         if (bot.commands[c].category in helplist) {
           helplist[bot.commands[c].category] += '\n' + bot.commands[c].commands[0] + ' - ' + bot.commands[c].description;
         } else {
           helplist[bot.commands[c].category] = bot.commands[c].commands[0] + ' - ' + bot.commands[c].description;
         }
-      })
+      });
       const embed2 = new RichEmbed()
       .setAuthor('Command List')
       .setColor(0x5B8DEA)
-      .setDescription(Object.keys(helplist).map(c => '__' + c + '__\n' + helplist[c]).join('\n\n'))
+      .setDescription(Object.keys(helplist).map((c) => '__' + c + '__\n' + helplist[c]).join('\n\n'))
       .setFooter('https://github.com/LarK1n/mercy-selfbot')
       .setTimestamp();
       msg.edit({ embed: embed2 });
