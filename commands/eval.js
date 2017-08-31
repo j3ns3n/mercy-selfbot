@@ -1,7 +1,5 @@
 const util = require('util');
-const snekfetch = require('snekfetch');
-
-const config = require('../config.json');
+const cleanAndPost = require('../functions/cleanAndPost.js');
 
 module.exports = {
   commands: [
@@ -15,25 +13,7 @@ module.exports = {
       try {
         let result = Promise.resolve(eval(args.join(' ')));
         result.then((result) => {
-          if (typeof (result) !== 'string') {
-            result = util.inspect(result, {
-              depth: 2,
-              maxArrayLength: 2048
-            });
-          }
-          result = result.split(config.discord.token).join('-- DISCORD TOKEN --');
-          result = result.split(bot.user.email).join('-- USER EMAIL --');
-          if (result.length > 1900 - args.join(' ').length) {
-            snekfetch.post('https://feed-the-wump.us/documents').send(result).then((body) => {
-              msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Result was too long, generated hastebin link instead.\nhttps://feed-the-wump.us/' + body.body.key + '.json**');
-            }).catch(*error) => {
-              msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An unexpected error occured while generating hastebin link.**');
-            });
-          } else {
-            msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Output:**\n```js\n' + result + '```').catch((error) => {
-              console.error(error);
-            });
-          }
+          cleanAndPost(result, msg);
         });
       } catch (e) {
         msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to evaluate code!**\n```js\n' + e + '```').catch((error) => {
