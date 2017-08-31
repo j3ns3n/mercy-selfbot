@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js')
+const { RichEmbed } = require('discord.js');
 
 module.exports = {
   commands: [
@@ -10,7 +10,7 @@ module.exports = {
   category: 'Information',
   execute: (bot, msg, args) => {
     if (args.length > 0) {
-      const command = Object.keys(bot.commands).filter(c => bot.commands[c].commands.indexOf(args[0]) > -1);
+      const command = Object.keys(bot.commands).filter((c) => bot.commands[c].commands.indexOf(args[0]) > -1);
       if (command.length > 0) {
         const embed = new RichEmbed()
         .setAuthor('Command Information', '')
