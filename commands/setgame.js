@@ -14,10 +14,10 @@ module.exports = {
 
     if(args[0].toLowerCase() === '-t') {
       if(!args[1].toLowerCase().startsWith('https://twitch.tv/')) {
-        return msg.edit('**Invalid Twitch URL**')
+        return msg.edit('**Invalid Twitch URL**');
       }
       if(args.slice(2).length < 1) {
-        return msg.edit('**No game name was submitted**')
+        return msg.edit('**No game name was submitted**');
       }
       bot.user.setPresence({
         game: {
@@ -26,7 +26,7 @@ module.exports = {
           type: 1
         }
       });
-      msg.edit(`**Set your game to \`${args.slice(2).join(' ')}\`**`)
+      msg.edit(`**Set your game to \`${args.slice(2).join(' ')}\`**`);
     } else {
       bot.user.setPresence({
         game: {
@@ -34,7 +34,7 @@ module.exports = {
           type: 0
         }
       });
-      msg.edit(`**Set your game to \`${args.join(' ')}\`**`)
+      msg.edit(`**Set your game to \`${args.join(' ')}\`**`);
     }
   }
 };
