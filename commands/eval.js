@@ -16,7 +16,7 @@ module.exports = {
           cleanAndPost(result, msg, args, bot);
         });
       } catch (error) {
-        msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to evaluate code!**\n```js\n' + e + '```').catch((error) => {
+        msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to evaluate code!**\n```js\n' + error + '```').catch((error) => {
           throw new Error(error);
         });
       }
