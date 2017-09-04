@@ -6,7 +6,7 @@ module.exports = {
   usage: 'ping',
   description: 'Pong!',
   category: 'Information',
-  execute: (bot, msg, args) => {
+  execute: (bot, msg) => {
     const start = Date.now();
 
     msg.edit(`Heartbeat Ping: ${bot.ping.toFixed()} ms`).then((newMsg) => {

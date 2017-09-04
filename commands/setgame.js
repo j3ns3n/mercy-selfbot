@@ -9,6 +9,7 @@ module.exports = {
     if(args.length < 1) {
       msg.edit('**Reset your game**');
       bot.user.setGame(null, null);
+
       return;
     }
 

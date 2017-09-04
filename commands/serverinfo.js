@@ -8,7 +8,7 @@ module.exports = {
   usage: 'serverinfo',
   description: 'Get information on the current server.',
   category: 'Information',
-  execute: (bot, msg, args) => {
+  execute: (bot, msg) => {
 
     if (!msg.guild) {
       msg.edit('**This can only be used in a guild!**');
@@ -19,7 +19,13 @@ module.exports = {
 
     const owner = msg.guild.owner.user || {};
 
-    const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
+    const verificationLevels = [
+      'None',
+      'Low',
+      'Medium',
+      'Insane',
+      'Extreme'
+    ];
 
     const embed = new RichEmbed()
       .setTitle(`${msg.guild.name}`)
@@ -27,16 +33,16 @@ module.exports = {
       .addField('Days Since Creation', `${days.toFixed(0)}`, true)
       .addField('Default Channel', `${msg.guild.defaultChannel}`, true)
       .addField('Region', `${msg.guild.region}`, true)
-      .addField('Member Count', `${msg.guild.members.filter((m) => m.presence.status !== 'offline').size} / ${msg.guild.memberCount}`, true)
+      .addField('Member Count', `${msg.guild.members.filter((member) => member.presence.status !== 'offline').size} / ${msg.guild.memberCount}`, true)
       .addField('Owner', `${owner.username || 'None'}`, true)
-      .addField('Text Channels', `${msg.guild.channels.filter((m) => m.type === 'text').size}`, true)
-      .addField('Voice Channels', `${msg.guild.channels.filter((m) => m.type === 'voice').size}`, true)
+      .addField('Text Channels', `${msg.guild.channels.filter((member) => member.type === 'text').size}`, true)
+      .addField('Voice Channels', `${msg.guild.channels.filter((member) => member.type === 'voice').size}`, true)
       .addField('Verification Level', `${verificationLevels[msg.guild.verificationLevel]}`, true)
       .addField('Roles', `${msg.guild.roles.size}`, true)
       .setFooter('https://github.com/LarK1n/mercy-selfbot')
       .setColor(0x5B8DEA)
       .setTimestamp();
 
-    msg.edit({embed});
+    msg.edit({ embed });
   }
 };

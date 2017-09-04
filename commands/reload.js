@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-const config = require('../config.json');
 const util = require('util');
 
 module.exports = {
@@ -19,8 +17,8 @@ module.exports = {
         try {
           bot.commands[filtered[0]] = require('./' + filtered[0] + '.js');
           msg.edit('**Successfully reloaded command `' + bot.commands[filtered[0]].commands[0] + '`.**');
-        } catch(e) {
-          msg.edit('**An error occured while assigning command to self. Restoring in-memory command to before reload.**\n```js\n' + util.inspect(e) + '```');
+        } catch(error) {
+          msg.edit('**An error occured while assigning command to self. Restoring in-memory command to before reload.**\n```js\n' + util.inspect(error) + '```');
           delete bot.commands[filtered[0]];
           bot.commands[filtered[0]] = old;
         }

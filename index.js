@@ -39,6 +39,7 @@ fs.readdir('./commands/', (error, files) => {
 
             log('Loaded ' + files.length + ' events! (' + (Date.now() - start) + ' ms)');
             bot.login(config.discord.token);
+            bot.config = config;
           }
         });
       });

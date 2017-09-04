@@ -1,6 +1,5 @@
-const util = require('util');
 const cleanAndPost = require('../functions/cleanAndPost.js');
-const child_process = require('child_process');
+const childProcess = require('child_process');
 
 module.exports = {
   commands: [
@@ -12,12 +11,12 @@ module.exports = {
   execute: (bot, msg, args) => {
     if (args.length > 0) {
       try {
-        child_process.exec(args.join(' '), (error, stdout, stderr) => {
-          let result = (stderr || stdout);
-          cleanAndPost(result, msg);
+        childProcess.exec(args.join(' '), (error, stdout, stderr) => {
+          let result = stderr || stdout;
+          cleanAndPost(result, msg, args, bot);
         });
-      } catch (e) {
-        msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to run command!**\n```js\n' + e + '```').catch((error) => {
+      } catch (error) {
+        msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to run command!**\n```js\n' + error + '```').catch((error) => {
           throw new Error(error);
         });
       }

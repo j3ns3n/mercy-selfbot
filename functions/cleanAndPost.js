@@ -1,10 +1,10 @@
 const snekfetch = require('snekfetch');
+const util = require('util');
+const config = require('../config.json');
+/* eslint-disable no-param-reassign, max-params */
+module.exports = (result, msg, args, bot) => {
 
-const config = require('../config.json')
-
-module.exports = (result, msg) => {
-
-  if (typeof (result) !== 'string') {
+  if (typeof result !== 'string') {
     result = util.inspect(result, {
       depth: 2,
       maxArrayLength: 2048
@@ -21,12 +21,12 @@ module.exports = (result, msg) => {
   if (result.length > 1900 - args.join(' ').length) {
     snekfetch.post('https://feed-the-wump.us/documents').send(result).then((body) => {
       msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Result was too long, generated hastebin link instead.\nhttps://feed-the-wump.us/' + body.body.key + '.json**');
-    }).catch(error) => {
+    }).catch(() => {
       msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An unexpected error occured while generating hastebin link.**');
     });
   } else {
     msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**Output:**\n```js\n' + result + '```').catch((error) => {
-      console.error(error);
+      throw new Error(error);
     });
   }
 };

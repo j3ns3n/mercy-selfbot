@@ -1,4 +1,3 @@
-const util = require('util');
 const cleanAndPost = require('../functions/cleanAndPost.js');
 
 module.exports = {
@@ -12,10 +11,11 @@ module.exports = {
     if (args.length > 0) {
       try {
         let result = Promise.resolve(eval(args.join(' ')));
+
         result.then((result) => {
-          cleanAndPost(result, msg);
+          cleanAndPost(result, msg, args, bot);
         });
-      } catch (e) {
+      } catch (error) {
         msg.edit('**Input:**\n```js\n' + args.join(' ') + '```\n**An error occured when attempting to evaluate code!**\n```js\n' + e + '```').catch((error) => {
           throw new Error(error);
         });

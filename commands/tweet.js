@@ -1,12 +1,4 @@
-const config = require('../config.json');
-
 const Twit = require('twit');
-const twitRunner = new Twit({
-  consumer_key: config.twitter.consumer_key,
-  consumer_secret: config.twitter.consumer_secret,
-  access_token: config.twitter.access_token,
-  access_token_secret: config.twitter.access_token_secret
-});
 
 module.exports = {
   commands: [
@@ -16,6 +8,14 @@ module.exports = {
   description: 'Tweet messages from Discord!',
   category: 'Fun',
   execute: (bot, msg, args) => {
+    /* eslint-disable camelcase */
+    const twitRunner = new Twit({
+      consumer_key: bot.config.twitter.consumer_key,
+      consumer_secret: bot.config.twitter.consumer_secret,
+      access_token: bot.config.twitter.access_token,
+      access_token_secret: bot.config.twitter.access_token_secret
+    });
+    /* eslint-enable camelcase */
     if(args.length < 1) {
       return msg.edit('**Missing text to tweet.**');
     }
@@ -24,12 +24,12 @@ module.exports = {
       return msg.edit('**Tweet too long.**');
     }
 
-    twitRunner.post('statuses/update', { status: args.join(' ') }, function(err, data, response) {
+    twitRunner.post('statuses/update', { status: args.join(' ') }, (err, data) => {
       if(err) {
+
         return;
       }
-      // console.log(data);
-      // console.log(response);
+
       msg.edit('**Tweet sent!**\nhttps://twitter.com/' + data.user.screen_name + '/status/' + data.id_str);
     });
   }

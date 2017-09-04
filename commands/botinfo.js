@@ -18,8 +18,9 @@ const getBotInfo = (id, msg) => {
     .addField('Server Count', r.body.server_count, true)
     .addField('Owner(s)', '<@' + r.body.owners.join('>\n<@') + '>')
     .addField('Invite', '[Here](https://discordapp.com/oauth2/authorize?scope=bot&permissions=0&client_id=' + id + ')', true);
-    msg.edit('', {embed});
-  }).catch((err) => {
+    msg.edit('', { embed });
+  })
+  .catch(() => {
     return msg.edit('**The bot you are looking for was not found!**');
   });
 };
@@ -35,10 +36,10 @@ module.exports = {
     if(args.length < 1) {
       return msg.edit('**Please provide a bot mention or ID**');
     }
-    if(!msg.mentions.users.first()) {
-      getBotInfo(args[0], msg);
-    } else {
+    if(msg.mentions.users.first()) {
       getBotInfo(msg.mentions.users.first().id, msg);
+    } else {
+      getBotInfo(args[0], msg);
     }
   }
 };

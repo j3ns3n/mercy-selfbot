@@ -17,7 +17,7 @@ module.exports = {
         .setColor(0x5B8DEA)
         .addField('Name', bot.commands[command[0]].commands[0])
         .addField('Description', bot.commands[command[0]].description)
-        .addField('Aliases', ((bot.commands[command[0]].commands.length > 1) ? bot.commands[command[0]].commands.slice(1).join(', ') : 'No Aliases'))
+        .addField('Aliases', bot.commands[command[0]].commands.length > 1 ? bot.commands[command[0]].commands.slice(1).join(', ') : 'No Aliases')
         .setFooter('https://github.com/LarK1n/mercy-selfbot')
         .setTimestamp();
         msg.edit({ embed });
@@ -32,17 +32,17 @@ module.exports = {
       }
     } else {
       let helplist = {};
-      Object.keys(bot.commands).forEach((c) => {
-        if (bot.commands[c].category in helplist) {
-          helplist[bot.commands[c].category] += '\n' + bot.commands[c].commands[0] + ' - ' + bot.commands[c].description;
+      Object.keys(bot.commands).forEach((command) => {
+        if (bot.commands[command].category in helplist) {
+          helplist[bot.commands[command].category] += '\n' + bot.commands[command].commands[0] + ' - ' + bot.commands[command].description;
         } else {
-          helplist[bot.commands[c].category] = bot.commands[c].commands[0] + ' - ' + bot.commands[c].description;
+          helplist[bot.commands[command].category] = bot.commands[command].commands[0] + ' - ' + bot.commands[command].description;
         }
       });
       const embed2 = new RichEmbed()
       .setAuthor('Command List')
       .setColor(0x5B8DEA)
-      .setDescription(Object.keys(helplist).map((c) => '__' + c + '__\n' + helplist[c]).join('\n\n'))
+      .setDescription(Object.keys(helplist).map((command) => '__' + command + '__\n' + helplist[command]).join('\n\n'))
       .setFooter('https://github.com/LarK1n/mercy-selfbot')
       .setTimestamp();
       msg.edit({ embed: embed2 });

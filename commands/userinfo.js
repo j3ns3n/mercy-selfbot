@@ -23,7 +23,7 @@ module.exports = {
     if(!member) {
       return msg.edit('**A user with that ID was not found!**');
     }
-    //Code below was totally not stolen from SharpBot
+    // Code below was totally not stolen from SharpBot
     const millisCreated = new Date().getTime() - user.createdAt.getTime();
     const daysCreated = millisCreated / 1000 / 60 / 60 / 24;
 
@@ -48,6 +48,6 @@ module.exports = {
     .setThumbnail(user.avatarURL)
     .setColor(0x5B8DEA)
     .setTimestamp();
-    msg.edit({embed});
+    msg.edit({ embed });
   }
 };

@@ -9,7 +9,7 @@ module.exports = {
   usage: 'neko',
   description: 'OwO',
   category: 'Fun',
-  execute: (bot, msg, args) => {
+  execute: (bot, msg) => {
     snekfetch.get('https://nekos.life/api/neko').then((res) => {
       if (res.status !== 200) {
         return msg.channel.send('**An error has occurred!**');
