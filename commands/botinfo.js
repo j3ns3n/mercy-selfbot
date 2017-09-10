@@ -15,7 +15,7 @@ const getBotInfo = (id, msg) => {
     .addField('Library', r.body.lib, true)
     .addField('Prefix', r.body.prefix)
     .addField('Upvotes', r.body.points, true)
-    .addField('Server Count', r.body.server_count, true)
+    .addField('Server Count', r.body.server_count || 'This bot doesn\'t post server count!', true)
     .addField('Owner(s)', '<@' + r.body.owners.join('>\n<@') + '>')
     .addField('Invite', '[Here](https://discordapp.com/oauth2/authorize?scope=bot&permissions=0&client_id=' + id + ')', true);
     msg.edit('', { embed });
