@@ -17,6 +17,7 @@ module.exports = {
         .setColor(0x5B8DEA)
         .addField('Name', bot.commands[command[0]].commands[0])
         .addField('Description', bot.commands[command[0]].description)
+        .addField('Usage', bot.commands[command[0]].usage)
         .addField('Aliases', bot.commands[command[0]].commands.length > 1 ? bot.commands[command[0]].commands.slice(1).join(', ') : 'No Aliases')
         .setFooter('https://github.com/LarK1n/mercy-selfbot')
         .setTimestamp();
