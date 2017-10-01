@@ -9,8 +9,7 @@
     "access_token": "",
     "access_token_secret": ""
   },
-  "spotify": {
-    "client_id": "",
-    "client_secret": ""
+  "strings": {
+    "github": "https://github.com/MercyDoesCode/mercy-selfbot"
   }
 }
