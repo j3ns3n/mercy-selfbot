@@ -39,7 +39,7 @@ module.exports = {
       .addField('Voice Channels', `${msg.guild.channels.filter((member) => member.type === 'voice').size}`, true)
       .addField('Verification Level', `${verificationLevels[msg.guild.verificationLevel]}`, true)
       .addField('Roles', `${msg.guild.roles.size}`, true)
-      .setFooter('https://github.com/LarK1n/mercy-selfbot')
+      .setFooter(bot.config.strings.github)
       .setColor(0x5B8DEA)
       .setTimestamp();
 

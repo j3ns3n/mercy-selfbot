@@ -9,12 +9,7 @@ module.exports = {
   category: 'Fun',
   execute: (bot, msg, args) => {
     /* eslint-disable camelcase */
-    const twitRunner = new Twit({
-      consumer_key: bot.config.twitter.consumer_key,
-      consumer_secret: bot.config.twitter.consumer_secret,
-      access_token: bot.config.twitter.access_token,
-      access_token_secret: bot.config.twitter.access_token_secret
-    });
+    const twitRunner = new Twit(bot.config.twitter);
     /* eslint-enable camelcase */
     if(args.length < 1) {
       return msg.edit('**Missing text to tweet.**');
@@ -26,7 +21,6 @@ module.exports = {
 
     twitRunner.post('statuses/update', { status: args.join(' ') }, (err, data) => {
       if(err) {
-
         return;
       }
 
