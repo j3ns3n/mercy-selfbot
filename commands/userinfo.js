@@ -44,7 +44,7 @@ module.exports = {
       .addField('Joined On', `${dateFormat(member.joinedAt)}`, true)
       .addField('Days Since Joining', `${daysJoined.toFixed(0)}`, true)
       .addField('Roles', `${roles.join(', ')}`, false)
-      .setFooter('https://github.com/LarK1n/mercy-selfbot')
+      .setFooter(bot.config.strings.github)
       .setThumbnail(user.avatarURL)
       .setColor(0x5B8DEA)
       .setTimestamp();

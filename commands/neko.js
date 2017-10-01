@@ -20,7 +20,7 @@ module.exports = {
           .setColor(0x5B8DEA)
           .setTitle('Random Neko')
           .setImage(res.body.neko)
-          .setFooter('https://github.com/MercyDoesCode/mercy-selfbot | Image by nekos.life')
+          .setFooter(`${bot.config.strings.github} | Image by nekos.life`)
       });
     });
   }
