@@ -13,7 +13,7 @@ module.exports = {
   if (args.length > 0) {
     const embed = new RichEmbed()
     .setTitle(args.join(' '));
-    msg.edit({embed})
+    msg.edit({embed});
   } else {
     return msg.edit('**Add something after the command silly!**');
   }
