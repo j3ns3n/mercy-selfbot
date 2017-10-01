@@ -5,7 +5,7 @@ module.exports = {
     'say',
     'esay'
   ],
-  usage: 'embedsay [texthere]',
+  usage: 'embedsay <texthere>',
   description: 'Takes words you put in and Puts them in a embed!',
   category: 'Other',
   execute: (bot, msg, args) => {
