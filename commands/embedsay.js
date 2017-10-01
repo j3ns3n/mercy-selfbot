@@ -17,4 +17,4 @@ module.exports = {
   } else {
     return msg.edit('**Add something after the command silly!**');
   }
-};
+}
