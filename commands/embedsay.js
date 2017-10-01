@@ -2,6 +2,7 @@ const { RichEmbed } = require('discord.js');
 
 module.exports = {
   commands: [
+    'embedsay',
     'say',
     'esay'
   ],
@@ -9,8 +10,9 @@ module.exports = {
   description: 'Takes words you put in and Puts them in a embed!',
   category: 'Other',
   execute: (bot, msg, args) => {
-  if (args.length > 0) msg.channel.send("Add something after the command silly!") return;
+  if (args.length > 0) msg.edit('**Add something after the command silly!**') return;
     const embed = new RichEmbed()
-    .setTitle(args.join(" "))
+    .setTitle(args.join(' '));
+    msg.edit({embed})
   }
 };
