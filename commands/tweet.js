@@ -26,7 +26,6 @@ module.exports = {
 
     twitRunner.post('statuses/update', { status: args.join(' ') }, (err, data) => {
       if(err) {
-
         return;
       }
 

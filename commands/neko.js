@@ -17,10 +17,10 @@ module.exports = {
 
       msg.edit('', {
         embed: new RichEmbed()
-        .setColor(0x5B8DEA)
-        .setTitle('Random Neko')
-        .setImage(res.body.neko)
-        .setFooter('https://github.com/MercyDoesCode/mercy-selfbot | Image by nekos.life')
+          .setColor(0x5B8DEA)
+          .setTitle('Random Neko')
+          .setImage(res.body.neko)
+          .setFooter('https://github.com/MercyDoesCode/mercy-selfbot | Image by nekos.life')
       });
     });
   }

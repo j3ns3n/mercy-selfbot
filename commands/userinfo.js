@@ -36,18 +36,18 @@ module.exports = {
     }
 
     const embed = new RichEmbed()
-    .setTitle(`${user.tag} | ${user.id}`)
-    .addField('Status', `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`, true)
-    .addField('Game', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Not playing a game.'}`, true)
-    .addField('Created On', `${dateFormat(user.createdAt)}`, true)
-    .addField('Days Since Creation', `${daysCreated.toFixed(0)}`, true)
-    .addField('Joined On', `${dateFormat(member.joinedAt)}`, true)
-    .addField('Days Since Joining', `${daysJoined.toFixed(0)}`, true)
-    .addField('Roles', `${roles.join(', ')}`, false)
-    .setFooter('https://github.com/LarK1n/mercy-selfbot')
-    .setThumbnail(user.avatarURL)
-    .setColor(0x5B8DEA)
-    .setTimestamp();
+      .setTitle(`${user.tag} | ${user.id}`)
+      .addField('Status', `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`, true)
+      .addField('Game', `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Not playing a game.'}`, true)
+      .addField('Created On', `${dateFormat(user.createdAt)}`, true)
+      .addField('Days Since Creation', `${daysCreated.toFixed(0)}`, true)
+      .addField('Joined On', `${dateFormat(member.joinedAt)}`, true)
+      .addField('Days Since Joining', `${daysJoined.toFixed(0)}`, true)
+      .addField('Roles', `${roles.join(', ')}`, false)
+      .setFooter('https://github.com/LarK1n/mercy-selfbot')
+      .setThumbnail(user.avatarURL)
+      .setColor(0x5B8DEA)
+      .setTimestamp();
     msg.edit({ embed });
   }
 };
