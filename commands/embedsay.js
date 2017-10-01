@@ -7,7 +7,7 @@ module.exports = {
   ],
   usage: 'embedsay [texthere]',
   description: 'Takes words you put in and Puts them in a embed!',
-  category: '',
+  category: 'Other',
   execute: (bot, msg, args) => {
   if (args.length > 0) msg.channel.send("Add something after the command silly!") return;
     const embed = new RichEmbed()
