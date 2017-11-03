@@ -12,7 +12,8 @@ module.exports = {
   execute: (bot, msg, args) => {
     if (args.length > 0) {
       const embed = new RichEmbed()
-      .setTitle(args.join(' '));
+      .setTitle('Embed:')
+      .setDescription(args.join(' '));
       msg.edit({embed});
     } else {
       return msg.edit('**Add something after the command silly!**');
