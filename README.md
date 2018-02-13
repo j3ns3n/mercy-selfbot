@@ -1,6 +1,12 @@
 # mercy-selfbot
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3fd24c02b7e64ebea56fbe8fca60e175)](https://www.codacy.com/app/MercyDoesCode/mercy-selfbot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MercyDoesCode/mercy-selfbot&amp;utm_campaign=Badge_Grade)
 #### My selfbot aims to make general use of Discord easier for the everyday user. It adds features like the ability to send Tweets from chat and in the future I plan to add implementation with the Spotify API.
+
+## Dependencies
+``node.js``,
+``npm`` and
+``git``
+
 ## Setup
 ### Step 1:
 #### Run the following commands to clone the repository and install dependencies:
