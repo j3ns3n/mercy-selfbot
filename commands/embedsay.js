@@ -19,4 +19,4 @@ module.exports = {
       return msg.edit('**Add something after the command silly!**');
     }
   }
-}
+};
