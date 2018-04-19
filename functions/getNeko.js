@@ -6,7 +6,7 @@ const getURL = endpoint => {
       return msg.channel.send("**An error has occurred!**");
     }
     return res.body.url;
-  });
+  }
 };
 
 module.exports = getURL;
